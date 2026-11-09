@@ -98,3 +98,9 @@ Actual Codex subscription usage; exact tokenizer counts; reasoning tokens; promp
 '''
 (root/'docs/benchmarks.md').write_text(doc,encoding='utf-8')
 print('Rendered banner.svg, benchmark.svg and benchmarks.md from current JSON reports.')
+
+import sys
+sys.path.insert(0,str(root/'src'))
+from contextpilot.report import html_report
+report=json.loads((root/'examples/results/pack-report.json').read_text(encoding='utf-8'))
+(root/'examples/results/report.html').write_text(html_report(report),encoding='utf-8')
