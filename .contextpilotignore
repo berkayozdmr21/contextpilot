@@ -1,0 +1,3 @@
+# Simple glob rules, not a full gitignore parser. No negation rules.
+examples/results/*
+docs/*.svg

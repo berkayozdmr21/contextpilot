@@ -1,0 +1,4 @@
+interface:
+  display_name: "ContextPilot"
+  short_description: "Prepare focused source context and concise failure logs"
+  default_prompt: "Use $contextpilot to prepare relevant source excerpts for this task."

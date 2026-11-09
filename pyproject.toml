@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+[project]
+name = "contextpilot-local"
+version = "0.1.0"
+description = "Local, budgeted source context and evidence-preserving log digests for coding agents"
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+authors = [{name = "Berkay Özdemir"}]
+dependencies = []
+keywords = ["codex", "context", "developer-tools", "cli", "local-first"]
+[project.scripts]
+contextpilot = "contextpilot.cli:main"
+[tool.setuptools.packages.find]
+where = ["src"]
+[project.urls]
+Repository = "https://github.com/berkayozdmr21/contextpilot"
+Issues = "https://github.com/berkayozdmr21/contextpilot/issues"

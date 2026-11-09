@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "benchmark": "Synthetic ShopCore / 30 source files / 5 labelled queries",
+  "methodology": "Same deterministic source corpus for every run. Baselines: all eligible text, and full text of selected files. Context includes labels and warnings. No model was called.",
+  "cases": [
+    {
+      "case": "session-expiry",
+      "requiredEvidence": 2,
+      "foundEvidence": 2,
+      "evidenceRecall": 1.0,
+      "outputChars": 1623,
+      "selectedFullFileChars": 20063,
+      "eligibleSourceChars": 268057,
+      "reductionVsSelectedFilesPct": 91.91,
+      "reductionVsEligibleCorpusPct": 99.39
+    },
+    {
+      "case": "payment-idempotency",
+      "requiredEvidence": 2,
+      "foundEvidence": 2,
+      "evidenceRecall": 1.0,
+      "outputChars": 1611,
+      "selectedFullFileChars": 20052,
+      "eligibleSourceChars": 268057,
+      "reductionVsSelectedFilesPct": 91.97,
+      "reductionVsEligibleCorpusPct": 99.4
+    },
+    {
+      "case": "upload-resume",
+      "requiredEvidence": 2,
+      "foundEvidence": 2,
+      "evidenceRecall": 1.0,
+      "outputChars": 1587,
+      "selectedFullFileChars": 20047,
+      "eligibleSourceChars": 268057,
+      "reductionVsSelectedFilesPct": 92.08,
+      "reductionVsEligibleCorpusPct": 99.41
+    },
+    {
+      "case": "search-pagination",
+      "requiredEvidence": 2,
+      "foundEvidence": 2,
+      "evidenceRecall": 1.0,
+      "outputChars": 1581,
+      "selectedFullFileChars": 20049,
+      "eligibleSourceChars": 268057,
+      "reductionVsSelectedFilesPct": 92.11,
+      "reductionVsEligibleCorpusPct": 99.41
+    },
+    {
+      "case": "turkish-symbol-query",
+      "requiredEvidence": 2,
+      "foundEvidence": 2,
+      "evidenceRecall": 1.0,
+      "outputChars": 1674,
+      "selectedFullFileChars": 20066,
+      "eligibleSourceChars": 268057,
+      "reductionVsSelectedFilesPct": 91.66,
+      "reductionVsEligibleCorpusPct": 99.38
+    }
+  ],
+  "evidenceRecall": 1.0,
+  "log": {
+    "inputChars": 62158,
+    "outputChars": 408,
+    "inputLines": 2003,
+    "errorAnchors": 2,
+    "selectedLines": 4,
+    "estimatedTextTokens": 136,
+    "reductionPct": 99.34,
+    "scope": "Text-size comparison, not measured model or Codex usage.",
+    "requiredEvidencePreserved": true
+  },
+  "limitations": [
+    "Lexical retrieval on synthetic data; not representative of every codebase.",
+    "Does not prove equal bug-fixing quality, actual token savings or reduced subscription usage.",
+    "The full-corpus baseline is deliberately broad; compare selected-file baseline too."
+  ]
+}

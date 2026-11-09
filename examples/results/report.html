@@ -1,0 +1,77 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'">
+<title>ContextPilot / Context report</title><style>
+*{box-sizing:border-box}body{margin:0;background:#f3f1e9;color:#293b36;font:15px system-ui,sans-serif}main{max-width:1100px;margin:auto;padding:45px 25px}header{display:flex;justify-content:space-between;border-bottom:1px solid #ccd0c4;padding-bottom:20px;font-weight:700;letter-spacing:-.6px}.tag{font:10px monospace;letter-spacing:2px;color:#6b7c6f}h1{font:normal 64px Georgia,serif;letter-spacing:-3px;margin:60px 0 20px}h1 i{color:#a8593f}.query{font:20px monospace;overflow-wrap:anywhere;line-height:1.6}.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:35px 0}article{border:1px solid #cdd2c5;padding:22px;background:#faf9f2}small{font-size:9px;letter-spacing:1px;display:block;color:#6d796f}strong{font-size:32px;display:block;margin-top:15px;font-weight:500}.note{padding:20px;border-left:3px solid #a8593f;background:#ece8dc;line-height:1.8}h2{margin-top:40px;font-size:18px}table{border-collapse:collapse;width:100%;font-size:12px}td,th{text-align:left;padding:15px 8px;border-bottom:1px solid #d4d8ca;overflow-wrap:anywhere}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#e7eade;padding:20px;font-size:11px;line-height:1.7}footer{border-top:1px solid #ccd0c4;margin-top:40px;padding-top:20px;font-size:11px;color:#758273}@media(max-width:700px){.cards{grid-template-columns:1fr 1fr}h1{font-size:43px}td{padding:10px 4px}main{padding:25px 16px}}
+</style><main><header><span>◧ contextpilot</span><span class="tag">LOCAL / MEASURABLE / OPEN SOURCE</span></header>
+<h1>Less noise.<br><i>More useful context.</i></h1><p class="tag">QUERY</p><p class="query">SessionExpiry expires_at session cookie login</p><section class="cards"><article><small>OUTPUT CHARACTERS</small><strong>1623</strong></article><article><small>SELECTED FILES</small><strong>2</strong></article><article><small>ELIGIBLE FILES</small><strong>30</strong></article><article><small>TEXT REDUCTION / SELECTED FILES</small><strong>91.91%</strong></article></section>
+<p class="note">This report measures extracted text size. It does not measure Codex quota, actual model tokens, reasoning cost or solution quality. Negative reduction means the labelled excerpt was larger than the baseline. Source selection can miss dependencies.</p>
+<h2>Selection evidence</h2><table><thead><tr><th>File</th><th>Score</th><th>Matched terms</th></tr></thead><tbody><tr><td>auth/login.py</td><td>21.5008</td><td>at, cookie, expires, expiry, login, session</td></tr><tr><td>auth/session.py</td><td>20.1142</td><td>at, cookie, expires, expiry, login, session</td></tr></tbody></table>
+<h2>Reproducible report</h2><details><summary>View complete JSON</summary><pre>{
+  &quot;query&quot;: &quot;SessionExpiry expires_at session cookie login&quot;,
+  &quot;budgetChars&quot;: 4500,
+  &quot;outputChars&quot;: 1623,
+  &quot;estimatedTextTokens&quot;: 543,
+  &quot;estimator&quot;: &quot;ceil(UTF-8 bytes / 3); not billing tokens&quot;,
+  &quot;eligibleSourceChars&quot;: 268057,
+  &quot;selectedFullFileChars&quot;: 20063,
+  &quot;reductionVsEligibleCorpusPct&quot;: 99.39,
+  &quot;reductionVsSelectedFilesPct&quot;: 91.91,
+  &quot;selected&quot;: [
+    {
+      &quot;path&quot;: &quot;auth/login.py&quot;,
+      &quot;score&quot;: 21.5008,
+      &quot;matched&quot;: [
+        &quot;at&quot;,
+        &quot;cookie&quot;,
+        &quot;expires&quot;,
+        &quot;expiry&quot;,
+        &quot;login&quot;,
+        &quot;session&quot;
+      ],
+      &quot;sha&quot;: &quot;4b0294a12d5027ed2bbd67e67f7432cc61ee7dbdd18134526a7e9bfb2415ccb8&quot;,
+      &quot;lines&quot;: [
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107
+      ]
+    },
+    {
+      &quot;path&quot;: &quot;auth/session.py&quot;,
+      &quot;score&quot;: 20.1142,
+      &quot;matched&quot;: [
+        &quot;at&quot;,
+        &quot;cookie&quot;,
+        &quot;expires&quot;,
+        &quot;expiry&quot;,
+        &quot;login&quot;,
+        &quot;session&quot;
+      ],
+      &quot;sha&quot;: &quot;0aa9d553395813eccd28c118bc0b1ecffec48e854a4d50c8c1a2d18250702c43&quot;,
+      &quot;lines&quot;: [
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108
+      ]
+    }
+  ],
+  &quot;matchedFiles&quot;: 2,
+  &quot;eligibleFiles&quot;: 30,
+  &quot;scanLimited&quot;: false,
+  &quot;scope&quot;: &quot;Text-size comparison only; does not measure Codex quota, reasoning or task correctness.&quot;
+}</pre></details><footer>ContextPilot · No API key. No telemetry. No quota bypass.</footer></main></html>
