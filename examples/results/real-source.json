@@ -1,0 +1,47 @@
+{
+  "dataset": "ContextPilot actual Python source; excludes synthetic benchmark generator and docs",
+  "methodology": "Five manually labelled source-location tasks; tests excerpt retrieval, not coding success.",
+  "cases": [
+    {
+      "case": "source-budget",
+      "expectedFile": "contextpilot/engine.py",
+      "evidenceFound": true,
+      "outputChars": 4137,
+      "selectedFullFileChars": 14635,
+      "reductionVsSelectedFilesPct": 71.73
+    },
+    {
+      "case": "redact-secrets",
+      "expectedFile": "contextpilot/safety.py",
+      "evidenceFound": true,
+      "outputChars": 4204,
+      "selectedFullFileChars": 15143,
+      "reductionVsSelectedFilesPct": 72.24
+    },
+    {
+      "case": "log-evidence",
+      "expectedFile": "contextpilot/logs.py",
+      "evidenceFound": true,
+      "outputChars": 4177,
+      "selectedFullFileChars": 14635,
+      "reductionVsSelectedFilesPct": 71.46
+    },
+    {
+      "case": "checkpoint-resume",
+      "expectedFile": "contextpilot/memory.py",
+      "evidenceFound": true,
+      "outputChars": 3680,
+      "selectedFullFileChars": 6106,
+      "reductionVsSelectedFilesPct": 39.73
+    },
+    {
+      "case": "html-escaping",
+      "expectedFile": "contextpilot/report.py",
+      "evidenceFound": true,
+      "outputChars": 4002,
+      "selectedFullFileChars": 12285,
+      "reductionVsSelectedFilesPct": 67.42
+    }
+  ],
+  "limitations": "Self-retrieval on a small project. Lexical query wording favors identifiers. No model usage measured."
+}

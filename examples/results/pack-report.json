@@ -1,0 +1,69 @@
+{
+  "query": "SessionExpiry expires_at session cookie login",
+  "budgetChars": 4500,
+  "outputChars": 1623,
+  "estimatedTextTokens": 543,
+  "estimator": "ceil(UTF-8 bytes / 3); not billing tokens",
+  "eligibleSourceChars": 268057,
+  "selectedFullFileChars": 20063,
+  "reductionVsEligibleCorpusPct": 99.39,
+  "reductionVsSelectedFilesPct": 91.91,
+  "selected": [
+    {
+      "path": "auth/login.py",
+      "score": 21.5008,
+      "matched": [
+        "at",
+        "cookie",
+        "expires",
+        "expiry",
+        "login",
+        "session"
+      ],
+      "sha": "4b0294a12d5027ed2bbd67e67f7432cc61ee7dbdd18134526a7e9bfb2415ccb8",
+      "lines": [
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107
+      ]
+    },
+    {
+      "path": "auth/session.py",
+      "score": 20.1142,
+      "matched": [
+        "at",
+        "cookie",
+        "expires",
+        "expiry",
+        "login",
+        "session"
+      ],
+      "sha": "0aa9d553395813eccd28c118bc0b1ecffec48e854a4d50c8c1a2d18250702c43",
+      "lines": [
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108
+      ]
+    }
+  ],
+  "matchedFiles": 2,
+  "eligibleFiles": 30,
+  "scanLimited": false,
+  "scope": "Text-size comparison only; does not measure Codex quota, reasoning or task correctness."
+}
