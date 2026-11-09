@@ -33,7 +33,8 @@
         105,
         106,
         107
-      ]
+      ],
+      "complete": false
     },
     {
       "path": "auth/session.py",
@@ -59,7 +60,8 @@
         106,
         107,
         108
-      ]
+      ],
+      "complete": false
     }
   ],
   "matchedFiles": 2,
