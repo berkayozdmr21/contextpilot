@@ -22,6 +22,17 @@ It ranks source files, selects bounded line windows and labels every excerpt wit
 
 ## What you get
 
+### New in 0.2 — dependency-aware, token-counted, session-safe
+
+- `--with-dependencies` includes one-hop local imports and importing tests, with selection reasons. Seed, dependency, test and fallback context receive different character shares.
+- `graph --path ...` explains local connections without executing project code. Python uses AST imports; JavaScript/TypeScript/Dart and unique C# type references use labelled heuristics.
+- Optional `--encoding o200k_base --max-tokens 2000` counts the **plain text in the selected encoding** and enforces both token and character ceilings. No model alias or Codex accounting scheme is guessed.
+- Explicit, acknowledged sessions can reference unchanged **complete** files or send a unified diff. Partial files, fresh chats and expired sessions cannot silently inherit context.
+- `compare` runs paired offline retrieval against explicit file / marker labels. Larger dependency-aware output is shown honestly when it contains more evidence.
+- Verified skill upgrades require an explicit backup and refuse locally modified installed files.
+
+Read the [0.2 guide and paired results](docs/v0.2.md). Defaults remain dependency-free; exact token counting is optional.
+
 | Capability | What it actually does |
 |---|---|
 | Source search | BM25-style lexical ranking with filename and identifier signals |
@@ -69,7 +80,7 @@ There is no PyPI release to trust by name: installation above builds this review
 python scripts/install_skill.py
 ```
 
-Installs to `$CODEX_HOME/skills/contextpilot`, or `~/.codex/skills/contextpilot`. The installed folder includes its own Python helper; moving or deleting the checkout does not break it. No API key is needed. Existing installations are never overwritten.
+Installs to `$CODEX_HOME/skills/contextpilot`, or `~/.codex/skills/contextpilot`. The installed folder includes its own Python helper; moving or deleting the checkout does not break it. No API key is needed. Existing installations are refused by default; verified updates require an explicit backup and refuse locally modified files.
 
 Then invoke it in Codex:
 
@@ -130,7 +141,7 @@ This illustration comes from the labelled synthetic fixture, not production auth
 
 ## Evidence before percentages
 
-ContextPilot includes **34 automated tests**, a five-query synthetic retrieval fixture, a five-query actual-source evaluation and a noisy-log case. The Windows / Linux CI matrix runs Python 3.9, 3.12 and 3.13. Symlink tests may skip on Windows accounts without the required privilege; Linux executes them.
+ContextPilot includes **65 automated tests**, a five-query synthetic retrieval fixture, a five-query actual-source evaluation and a noisy-log case. The Windows / Linux CI matrix runs Python 3.9, 3.12 and 3.13. Symlink tests may skip on Windows accounts without the required privilege; Linux executes them.
 
 <img src="docs/benchmark.svg" alt="Actual-source context sizes compared with selected full-file sizes" width="100%">
 
@@ -153,7 +164,7 @@ Read the [measurement protocol and result table](docs/benchmarks.md), [synthetic
 ## Boundaries that matter
 
 - **Lexical, not semantic:** include relevant symbols or filenames. Turkish characters and camelCase identifiers are normalized, but queries are not translated between languages.
-- **Partial, not complete:** imports, distant callers and generated contracts can be missed. Expand the search and read full files when needed.
+- **Partial, not complete:** distant callers and generated contracts can be missed. Expand the search and read full files when needed.
 - **Local, not encrypted:** `.contextpilot/index.json` contains redacted source text. Do not publish this directory. Redaction is best effort, not a confidentiality certification.
 - **Fresh, not magic:** fingerprints are recomputed from current content. Unchanged files are still read locally; no claim is made that disk reads or model calls are eliminated automatically.
 - **Measured, not guaranteed:** smaller text can cause more follow-up work if relevant evidence is omitted. Negative reduction values are preserved rather than hidden.

@@ -12,11 +12,11 @@ Budget: 4,500 characters; at most three selected files. Baseline: complete text 
 
 | Task | Selected full files, chars | Packet, chars | Text reduction | Required declaration |
 |---|---:|---:|---:|---|
-| source-budget | 14,635 | 4,137 | 71.73% | Found |
-| redact-secrets | 15,143 | 4,204 | 72.24% | Found |
-| log-evidence | 14,635 | 4,177 | 71.46% | Found |
-| checkpoint-resume | 6,106 | 3,680 | 39.73% | Found |
-| html-escaping | 12,285 | 4,002 | 67.42% | Found |
+| source-budget | 22,265 | 3,962 | 82.21% | Found |
+| redact-secrets | 12,428 | 4,241 | 65.88% | Found |
+| log-evidence | 23,334 | 4,228 | 81.88% | Found |
+| checkpoint-resume | 11,564 | 3,514 | 69.61% | Found |
+| html-escaping | 17,497 | 3,129 | 82.12% | Found |
 
 These are small-project self-retrieval results, not a representative industry dataset. An early run missed the redaction function because dense regex literals crowded it out. Declaration weighting and separated windows addressed that observed failure, with a regression test. This does not eliminate other retrieval misses.
 
@@ -43,7 +43,7 @@ Synthetic results are checked for deterministic regeneration in CI on Windows an
 
 ## Quality gates
 
-- Unit / integration tests exercise 34 behavior cases. Linux additionally runs symlink cases that Windows may skip due to account privileges.
+- Unit / integration tests exercise 65 behavior cases. Linux additionally runs symlink cases that Windows may skip due to account privileges.
 - A case with missing required evidence fails even when output is smaller.
 - Character budget violations fail.
 - Same-size / same-mtime source changes must not return stale cached text.
@@ -52,4 +52,4 @@ Synthetic results are checked for deterministic regeneration in CI on Windows an
 
 ## What remains unmeasured
 
-Actual Codex subscription usage; exact tokenizer counts; reasoning tokens; prompt-cache behavior; multi-turn follow-up costs; correctness of a completed bug fix; effects on large multilingual or generated-code repositories. A useful future study would run paired agent tasks, check correctness with hidden tests and record total usage across the whole task. That experiment is not part of the present results.
+Actual Codex subscription usage; full model-request token counts; reasoning tokens; prompt-cache behavior; multi-turn follow-up costs; correctness of a completed bug fix; effects on large multilingual or generated-code repositories. A useful future study would run paired agent tasks, check correctness with hidden tests and record total usage across the whole task. That experiment is not part of the present results.

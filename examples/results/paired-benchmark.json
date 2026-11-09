@@ -1,0 +1,292 @@
+{
+  "schemaVersion": 1,
+  "encoding": "o200k_base",
+  "cases": [
+    {
+      "case": "python-local",
+      "withinSupportedOneHopScope": true,
+      "query": "schedule_dispatch",
+      "budgetChars": 6000,
+      "maxFiles": 4,
+      "modes": {
+        "lexical": {
+          "outputChars": 793,
+          "selected": [
+            "tests/test_dispatch.py",
+            "app/service.py"
+          ],
+          "requiredFiles": {
+            "app/policy.py": false
+          },
+          "requiredMarkers": {
+            "return zone in": false
+          },
+          "evidenceRecall": 0.0,
+          "tokenization": {
+            "encoding": "o200k_base",
+            "textTokens": 225,
+            "selectedFullFilesTokens": 36,
+            "maxTokens": null,
+            "reductionVsSelectedFilesPct": -525.0,
+            "scope": "Exact plain-text encoding counts, not complete request tokens or Codex quota. Baseline joins selected full-file bodies with two newlines."
+          }
+        },
+        "dependency-aware": {
+          "outputChars": 1070,
+          "selected": [
+            "app/service.py",
+            "tests/test_dispatch.py",
+            "app/policy.py"
+          ],
+          "requiredFiles": {
+            "app/policy.py": true
+          },
+          "requiredMarkers": {
+            "return zone in": true
+          },
+          "evidenceRecall": 1.0,
+          "tokenization": {
+            "encoding": "o200k_base",
+            "textTokens": 318,
+            "selectedFullFilesTokens": 51,
+            "maxTokens": null,
+            "reductionVsSelectedFilesPct": -523.53,
+            "scope": "Exact plain-text encoding counts, not complete request tokens or Codex quota. Baseline joins selected full-file bodies with two newlines."
+          }
+        }
+      },
+      "scope": "Paired retrieval with explicit evidence labels only. No agent, hidden coding tests, reasoning tokens, or Codex quota was measured."
+    },
+    {
+      "case": "typescript-local",
+      "withinSupportedOneHopScope": true,
+      "query": "scheduleDispatch",
+      "budgetChars": 6000,
+      "maxFiles": 4,
+      "modes": {
+        "lexical": {
+          "outputChars": 784,
+          "selected": [
+            "web/service.test.ts",
+            "web/service.ts"
+          ],
+          "requiredFiles": {
+            "web/policy.ts": false
+          },
+          "requiredMarkers": {
+            "includes(zone)": false
+          },
+          "evidenceRecall": 0.0,
+          "tokenization": {
+            "encoding": "o200k_base",
+            "textTokens": 228,
+            "selectedFullFilesTokens": 41,
+            "maxTokens": null,
+            "reductionVsSelectedFilesPct": -456.1,
+            "scope": "Exact plain-text encoding counts, not complete request tokens or Codex quota. Baseline joins selected full-file bodies with two newlines."
+          }
+        },
+        "dependency-aware": {
+          "outputChars": 1083,
+          "selected": [
+            "web/service.ts",
+            "web/service.test.ts",
+            "web/policy.ts"
+          ],
+          "requiredFiles": {
+            "web/policy.ts": true
+          },
+          "requiredMarkers": {
+            "includes(zone)": true
+          },
+          "evidenceRecall": 1.0,
+          "tokenization": {
+            "encoding": "o200k_base",
+            "textTokens": 328,
+            "selectedFullFilesTokens": 61,
+            "maxTokens": null,
+            "reductionVsSelectedFilesPct": -437.7,
+            "scope": "Exact plain-text encoding counts, not complete request tokens or Codex quota. Baseline joins selected full-file bodies with two newlines."
+          }
+        }
+      },
+      "scope": "Paired retrieval with explicit evidence labels only. No agent, hidden coding tests, reasoning tokens, or Codex quota was measured."
+    },
+    {
+      "case": "dart-local",
+      "withinSupportedOneHopScope": true,
+      "query": "scheduleDispatch",
+      "budgetChars": 6000,
+      "maxFiles": 4,
+      "modes": {
+        "lexical": {
+          "outputChars": 733,
+          "selected": [
+            "test/service_test.dart",
+            "lib/service.dart"
+          ],
+          "requiredFiles": {
+            "lib/policy.dart": false
+          },
+          "requiredMarkers": {
+            "contains(zone)": false
+          },
+          "evidenceRecall": 0.0,
+          "tokenization": {
+            "encoding": "o200k_base",
+            "textTokens": 215,
+            "selectedFullFilesTokens": 32,
+            "maxTokens": null,
+            "reductionVsSelectedFilesPct": -571.88,
+            "scope": "Exact plain-text encoding counts, not complete request tokens or Codex quota. Baseline joins selected full-file bodies with two newlines."
+          }
+        },
+        "dependency-aware": {
+          "outputChars": 1016,
+          "selected": [
+            "lib/service.dart",
+            "test/service_test.dart",
+            "lib/policy.dart"
+          ],
+          "requiredFiles": {
+            "lib/policy.dart": true
+          },
+          "requiredMarkers": {
+            "contains(zone)": true
+          },
+          "evidenceRecall": 1.0,
+          "tokenization": {
+            "encoding": "o200k_base",
+            "textTokens": 308,
+            "selectedFullFilesTokens": 48,
+            "maxTokens": null,
+            "reductionVsSelectedFilesPct": -541.67,
+            "scope": "Exact plain-text encoding counts, not complete request tokens or Codex quota. Baseline joins selected full-file bodies with two newlines."
+          }
+        }
+      },
+      "scope": "Paired retrieval with explicit evidence labels only. No agent, hidden coding tests, reasoning tokens, or Codex quota was measured."
+    },
+    {
+      "case": "csharp-local",
+      "withinSupportedOneHopScope": true,
+      "query": "ScheduleDispatch",
+      "budgetChars": 6000,
+      "maxFiles": 4,
+      "modes": {
+        "lexical": {
+          "outputChars": 772,
+          "selected": [
+            "Tests/ControllerTests.cs",
+            "Api/Controller.cs"
+          ],
+          "requiredFiles": {
+            "Core/RegionPolicy.cs": false
+          },
+          "requiredMarkers": {
+            "zone == \"north\"": false
+          },
+          "evidenceRecall": 0.0,
+          "tokenization": {
+            "encoding": "o200k_base",
+            "textTokens": 218,
+            "selectedFullFilesTokens": 38,
+            "maxTokens": null,
+            "reductionVsSelectedFilesPct": -473.68,
+            "scope": "Exact plain-text encoding counts, not complete request tokens or Codex quota. Baseline joins selected full-file bodies with two newlines."
+          }
+        },
+        "dependency-aware": {
+          "outputChars": 1072,
+          "selected": [
+            "Api/Controller.cs",
+            "Tests/ControllerTests.cs",
+            "Core/RegionPolicy.cs"
+          ],
+          "requiredFiles": {
+            "Core/RegionPolicy.cs": true
+          },
+          "requiredMarkers": {
+            "zone == \"north\"": true
+          },
+          "evidenceRecall": 1.0,
+          "tokenization": {
+            "encoding": "o200k_base",
+            "textTokens": 316,
+            "selectedFullFilesTokens": 56,
+            "maxTokens": null,
+            "reductionVsSelectedFilesPct": -464.29,
+            "scope": "Exact plain-text encoding counts, not complete request tokens or Codex quota. Baseline joins selected full-file bodies with two newlines."
+          }
+        }
+      },
+      "scope": "Paired retrieval with explicit evidence labels only. No agent, hidden coding tests, reasoning tokens, or Codex quota was measured."
+    },
+    {
+      "case": "known-one-hop-limit",
+      "withinSupportedOneHopScope": false,
+      "query": "schedule_dispatch",
+      "budgetChars": 6000,
+      "maxFiles": 4,
+      "modes": {
+        "lexical": {
+          "outputChars": 510,
+          "selected": [
+            "app/service.py"
+          ],
+          "requiredFiles": {
+            "app/policy.py": false
+          },
+          "requiredMarkers": {
+            "zone == \"north\"": false
+          },
+          "evidenceRecall": 0.0,
+          "tokenization": {
+            "encoding": "o200k_base",
+            "textTokens": 139,
+            "selectedFullFilesTokens": 15,
+            "maxTokens": null,
+            "reductionVsSelectedFilesPct": -826.67,
+            "scope": "Exact plain-text encoding counts, not complete request tokens or Codex quota. Baseline joins selected full-file bodies with two newlines."
+          }
+        },
+        "dependency-aware": {
+          "outputChars": 764,
+          "selected": [
+            "app/service.py",
+            "app/bridge.py"
+          ],
+          "requiredFiles": {
+            "app/policy.py": false
+          },
+          "requiredMarkers": {
+            "zone == \"north\"": false
+          },
+          "evidenceRecall": 0.0,
+          "tokenization": {
+            "encoding": "o200k_base",
+            "textTokens": 232,
+            "selectedFullFilesTokens": 29,
+            "maxTokens": null,
+            "reductionVsSelectedFilesPct": -700.0,
+            "scope": "Exact plain-text encoding counts, not complete request tokens or Codex quota. Baseline joins selected full-file bodies with two newlines."
+          }
+        }
+      },
+      "scope": "Paired retrieval with explicit evidence labels only. No agent, hidden coding tests, reasoning tokens, or Codex quota was measured."
+    }
+  ],
+  "session": {
+    "initialChars": 2214,
+    "unchangedChars": 558,
+    "changedChars": 1629,
+    "unchangedIsReference": true,
+    "changeEvidencePreserved": true,
+    "encoding": "o200k_base",
+    "initialTextTokens": 355,
+    "unchangedTextTokens": 136,
+    "changedTextTokens": 280,
+    "scope": "Requires a complete, explicitly acknowledged baseline retained in this same chat. New chats send full context."
+  },
+  "scope": "Small labelled retrieval fixtures, not paired agent runs or bug-fixing success. Larger context can improve evidence recall without saving tokens. One known one-hop limitation is included rather than hidden."
+}

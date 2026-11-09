@@ -16,7 +16,7 @@ flowchart LR
 
 ## Local engine
 
-Python's standard library is sufficient for traversal, subprocess-based Git discovery, hashing, ranking, serialization and command parsing. No embedding service, LLM call, database daemon or network dependency is needed at runtime. Packaging and optional coverage tooling are development concerns.
+Python's standard library is sufficient for traversal, subprocess-based Git discovery, hashing, ranking, serialization and command parsing. The default core needs no embedding service, LLM call, database daemon or network dependency. Optional tiktoken encoding tables may need a one-time download. Packaging and optional coverage tooling are development concerns.
 
 Discovery uses `git ls-files --cached --others --exclude-standard`. In a non-Git directory it falls back to a bounded walk. Built-in exclusions are applied in both modes. Symlinks and Windows reparse points are not intentionally followed. The tool is not a race-proof filesystem sandbox.
 
@@ -24,7 +24,7 @@ Source content is decoded as UTF-8, line endings normalized and known credential
 
 ## Ranking and extraction
 
-Identifiers are split at camelCase boundaries, Turkish diacritics are normalized and common stop words removed. File ranking uses a BM25-style frequency / length signal with a path-match bonus. It is intentionally lexical: no cross-language semantic equivalence or import graph is claimed.
+Identifiers are split at camelCase boundaries, Turkish diacritics are normalized and common stop words removed. File ranking uses a BM25-style frequency / length signal with a path-match bonus. It is intentionally lexical: no cross-language semantic equivalence is claimed. Optional dependency expansion is described in [the 0.2 guide](v0.2.md).
 
 For each file, line-level matches locate candidate windows. Matching declaration lines receive a bonus; nearby redundant centers are avoided. Windows can be offered out of file order, but retain original line numbers. A per-file share prevents one long file from monopolizing the pack. Warnings, query and labels count toward the final character ceiling.
 
@@ -46,8 +46,8 @@ The original log remains untouched. ANSI formatting is removed and common creden
 
 Character counts are exact Python string lengths after normalization / redaction, including packet labels. UTF-8 byte heuristics are labelled estimates. Neither is a billing-token counter. The selected-file and eligible-corpus baselines are separate, and negative savings are kept. No model execution or model correctness metric is silently inferred.
 
-HTML uses escaped values, inline CSS and a restrictive CSP; it has no script, remote font, analytics or network request. The skill installer copies the complete helper into its own directory, refuses existing destinations and does not modify global Codex settings.
+HTML uses escaped values, inline CSS and a restrictive CSP; it has no script, remote font, analytics or network request. The skill installer copies the complete helper into its own directory and does not modify global Codex settings. Existing destinations are refused unless an explicit, hash-verified, backed-up update is requested.
 
 ## Deliberate non-goals
 
-There is no quota reset, request interception, account credential collection, automatic cloud sync, generated-code rewriting or hidden model routing. Semantic retrieval, dependency-graph expansion and real agent A/B trials are possible future work; they are not implemented features.
+There is no quota reset, request interception, account credential collection, automatic cloud sync, generated-code rewriting or hidden model routing. Semantic retrieval, deeper semantic dependency resolution and real agent A/B trials are possible future work; they are not implemented features.

@@ -22,11 +22,13 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python }}
-      - run: python -m pip install . coverage
+      - run: python -m pip install ".[tokenizer]" coverage black==25.1.0
+      - run: black --check src scripts tests
       - run: coverage run --source=src/contextpilot -m unittest discover -s tests -v
       - run: coverage report --show-missing --fail-under=75
       - run: python scripts/benchmark.py --output examples/results
       - run: python scripts/real_benchmark.py
+      - run: python scripts/paired_benchmark.py --encoding o200k_base
       - name: Check deterministic synthetic results
         run: git diff --exit-code -- examples/results/benchmark.json examples/results/context-pack.md examples/results/log-digest.md examples/results/pack-report.json
       - name: Smoke test installed console entry point
@@ -36,3 +38,17 @@ jobs:
         with:
           name: verification-${{ matrix.os }}-${{ matrix.python }}
           path: examples/results
+  minimal-install:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    env:
+      PYTHONPATH: src
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install .
+      - run: python -m unittest discover -s tests -v
+      - name: No tokenizer dependency is installed by default
+        run: python -c "import importlib.util; assert importlib.util.find_spec('tiktoken') is None"

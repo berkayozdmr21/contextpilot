@@ -6,41 +6,41 @@
       "case": "source-budget",
       "expectedFile": "contextpilot/engine.py",
       "evidenceFound": true,
-      "outputChars": 4137,
-      "selectedFullFileChars": 14635,
-      "reductionVsSelectedFilesPct": 71.73
+      "outputChars": 3962,
+      "selectedFullFileChars": 22265,
+      "reductionVsSelectedFilesPct": 82.21
     },
     {
       "case": "redact-secrets",
       "expectedFile": "contextpilot/safety.py",
       "evidenceFound": true,
-      "outputChars": 4204,
-      "selectedFullFileChars": 15143,
-      "reductionVsSelectedFilesPct": 72.24
+      "outputChars": 4241,
+      "selectedFullFileChars": 12428,
+      "reductionVsSelectedFilesPct": 65.88
     },
     {
       "case": "log-evidence",
       "expectedFile": "contextpilot/logs.py",
       "evidenceFound": true,
-      "outputChars": 4177,
-      "selectedFullFileChars": 14635,
-      "reductionVsSelectedFilesPct": 71.46
+      "outputChars": 4228,
+      "selectedFullFileChars": 23334,
+      "reductionVsSelectedFilesPct": 81.88
     },
     {
       "case": "checkpoint-resume",
       "expectedFile": "contextpilot/memory.py",
       "evidenceFound": true,
-      "outputChars": 3680,
-      "selectedFullFileChars": 6106,
-      "reductionVsSelectedFilesPct": 39.73
+      "outputChars": 3514,
+      "selectedFullFileChars": 11564,
+      "reductionVsSelectedFilesPct": 69.61
     },
     {
       "case": "html-escaping",
       "expectedFile": "contextpilot/report.py",
       "evidenceFound": true,
-      "outputChars": 4002,
-      "selectedFullFileChars": 12285,
-      "reductionVsSelectedFilesPct": 67.42
+      "outputChars": 3129,
+      "selectedFullFileChars": 17497,
+      "reductionVsSelectedFilesPct": 82.12
     }
   ],
   "limitations": "Self-retrieval on a small project. Lexical query wording favors identifiers. No model usage measured."

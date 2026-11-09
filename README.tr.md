@@ -9,6 +9,17 @@ Bir hatayı anlamak için bazen iki fonksiyon yeterlidir. Buna rağmen tüm dosy
 
 Python CLI ve Codex'e kurulabilen bağımsız bir beceri içerir. Ücretli API, harici model, bulut hesabı veya telemetri kullanmaz. Codex'in beş saatlik yenilenme süresini değiştirmez; tüm mesajları otomatik sıkıştıran bir ağ eklentisi değildir.
 
+## 0.2 sürümünde yeni
+
+Bağımlılık ve test seçimi, isteğe bağlı gerçek tokenizer sayımı, aynı sohbete ait onaylı değişiklik paketleri ve karşılaştırmalı kanıt raporu eklendi. [Ayrıntılı kullanım ve sınırlar](docs/v0.2.md).
+
+```powershell
+python -m pip install ".[tokenizer]"
+contextpilot pack "upload retry" --root . --with-dependencies --encoding o200k_base --max-tokens 2000 --max-chars 8000
+```
+
+Tokenizer ilk kullanımda encoding tablolarını indirebilir; kodunu uzak modele göndermez. Aktif Codex modelinin toplam token veya kota sayımı değildir.
+
 ## Özellikler
 
 | Özellik | Davranış |
@@ -46,7 +57,7 @@ python skills/contextpilot/scripts/run.py pack "session expiry cookie" --root "C
 python scripts/install_skill.py
 ```
 
-Beceri `$CODEX_HOME/skills/contextpilot`, bu değişken tanımlı değilse `~/.codex/skills/contextpilot` altına kurulur. Python kodu da bu klasöre kopyalanır; GitHub klonunu taşısan bile kurulu beceri çalışır. Var olan kurulumun üzerine yazılmaz.
+Beceri `$CODEX_HOME/skills/contextpilot`, bu değişken tanımlı değilse `~/.codex/skills/contextpilot` altına kurulur. Python kodu da bu klasöre kopyalanır; GitHub klonunu taşısan bile kurulu beceri çalışır. Var olan kurulum varsayılan olarak reddedilir. Güncelleme için `--update --backup ./skill-backup` kullanılır; yerel değişiklikler varsa üzerine yazılmaz.
 
 Codex'te:
 
@@ -90,7 +101,7 @@ Normal kullanımda kaynak metin stdout'a, ölçüm bilgisi stderr'a yazılır. `
 
 ## Testler ve ölçüm
 
-34 davranış ve CLI testi bulunur. CI, Windows ve Linux üzerinde Python 3.9 / 3.12 / 3.13 ile çalışır. Sembolik bağlantı testleri, yerel Windows hesabında ayrıcalık yoksa atlanır; Linux'ta çalıştırılır.
+65 davranış ve CLI testi bulunur. CI, Windows ve Linux üzerinde Python 3.9 / 3.12 / 3.13 ile çalışır. Sembolik bağlantı testleri, yerel Windows hesabında ayrıcalık yoksa atlanır; Linux'ta çalıştırılır.
 
 Üç farklı kanıt seti vardır:
 
@@ -108,7 +119,7 @@ python -m unittest discover -s tests -v
 
 Son test komutu için paketin kurulmuş olması gerekir. Kurmadan çalıştırıyorsan `$env:PYTHONPATH="$PWD/src"` tanımla. Ayrıntılı protokol: [benchmarks.md](docs/benchmarks.md). Ham çıktılar [examples/results](examples/results) içinde sürümlenir.
 
-**Önemli ölçüm ayrımı:** Karakter azalması, gerçek model token'ı veya Codex kotası azalması değildir. Token tahmini `ceil(UTF-8 bayt / 3)` sezgisidir. Akıl yürütme, ek araç çağrıları ve eksik bağlam nedeniyle gereken tekrarlar bu ölçümde bulunmaz. Sonuçları garanti edilmiş bir yüzdeye dönüştürmeyiz.
+**Önemli ölçüm ayrımı:** Karakter azalması, gerçek model token'ı veya Codex kotası azalması değildir. Varsayılan token tahmini `ceil(UTF-8 bayt / 3)` sezgisidir; 0.2 sürümünde açık encoding ile düz metin için kesin sayım da seçilebilir. Akıl yürütme, ek araç çağrıları ve eksik bağlam nedeniyle gereken tekrarlar bu ölçümde bulunmaz. Sonuçları garanti edilmiş bir yüzdeye dönüştürmeyiz.
 
 ## Veri ve güvenlik
 
